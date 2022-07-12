@@ -1,24 +1,24 @@
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Card from '../Component/Card'
 import SmallCard from '../Component/SmallCard';
 
-const Fitness = () => {
+const Food = () => {
     const[data,setData]=useState([])
-    useEffect(()=>{
-        const url = "https://nodebackend1.herokuapp.com/api/fit";
-        fetch(url).then(res => res.json())
-            .then(res => setData(res)  )
-    },[])
+  useEffect(()=>{
+      const url = "https://nodebackend1.herokuapp.com/api/food";
+      fetch(url).then(res => res.json())
+          .then(res => setData(res)  )
+  },[])
     // console.log(detail);
     return (
         <div>
-            <h1 style={{ margin: "20px 10%", display: "inline-block" }}>Fitness</h1>
-            <h1 style={{ margin: "20px 0px 20px 37%", display: "inline-block" }}>Top Posts</h1>
+            <h1 style={{ margin: "20px 10%", display: "inline-block" }}>Food</h1>
+            <h1 style={{ margin: "20px 0px 20px 39%", display: "inline-block" }}>Top Posts</h1>
             <div className="main__container">
                 <div className='rightbar'>
                     {
-                        data.filter((article) => { return article.category === "Fitness" }).map((n) => (
+                        data.filter((article) => { return article.category === "Food" }).map((n) => (
                             <Card
                                 articleid={n.id}
                                 imgUrl={n.Image}
@@ -33,7 +33,7 @@ const Fitness = () => {
 
                 <div className="sidebar">
                     {
-                        data.filter((article) => { return article.category === "Fitness" }).map((n) => (
+                        data.filter((article) => { return article.category === "Food" }).map((n) => (
                             <SmallCard
                             articleid={n.id}
                             imgUrl={n.Image}
@@ -54,4 +54,4 @@ const Fitness = () => {
         </div>
     )
 }
-export default Fitness
+export default Food
