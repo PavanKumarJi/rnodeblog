@@ -7,6 +7,6 @@ const Button = (props) => {
         <button>{buttonText}</button>
     </div>
   )
-}
+}}
 
 export default Button
